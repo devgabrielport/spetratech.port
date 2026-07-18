@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://devgabrielport.github.io/spetratech.port/sitemap.xml
+Sitemap: https://spetratech.netlify.app/sitemap.xml
