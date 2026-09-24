@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Becoming a Freelancer, Building Spetratech — Israel Gabriel</title>
+<meta name="description" content="How freelancing changed the way I think about design, and why I started looking at websites as business systems rather than just pages.">
+<link rel="canonical" href="https://spetratech.netlify.app/blog-becoming-a-freelancer-building-spetratech.html">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="Becoming a Freelancer, Building Spetratech">
+<meta property="og:description" content="How freelancing changed the way I think about design, and why I started looking at websites as business systems rather than just pages.">
+<meta property="og:image" content="https://spetratech.netlify.app/assets/blog/becoming-a-freelancer-building-spetratech.jpg">
+<meta property="article:author" content="Israel Gabriel">
+
+<link rel="icon" href="assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg: #060606; --bg-soft: #0a0a0a; --surface: #0e0e0e; --card: #111311;
+  --border: rgba(255,255,255,0.08); --border-strong: rgba(191,255,45,0.35);
+  --white: #f6f7f4; --gray: #9a9d96; --gray-dim: #66695f;
+  --lime: #bfff2d; --lime-dim: rgba(191,255,45,0.12); --lime-glow: rgba(191,255,45,0.35);
+  --font-display:'Space Grotesk',sans-serif; --font-body:'Inter',sans-serif; --font-mono:'JetBrains Mono',monospace;
+  --ease: cubic-bezier(.16,.8,.28,1); --container: 1200px;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--white);font-family:var(--font-body);overflow-x:hidden;line-height:1.5;-webkit-font-smoothing:antialiased;}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit;}
+::selection{background:var(--lime);color:#060606;}
+.wrap{max-width:var(--container);margin:0 auto;padding:0 32px;position:relative;z-index:2;}
+section{position:relative;z-index:2;}
+h1,h2,h3,h4{font-family:var(--font-display);font-weight:600;letter-spacing:-0.02em;line-height:1.15;}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--lime);padding:7px 14px 7px 10px;border:1px solid var(--border-strong);border-radius:100px;background:var(--lime-dim);}
+.eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--lime);box-shadow:0 0 8px var(--lime-glow);}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:15px 26px;border-radius:10px;font-family:var(--font-body);font-weight:600;font-size:15px;transition:transform .35s var(--ease), box-shadow .35s var(--ease), background .35s var(--ease), border-color .35s var(--ease);white-space:nowrap;}
+.btn-primary{background:var(--lime);color:#060606;}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 12px 30px -8px var(--lime-glow);}
+.btn-ghost{background:transparent;color:var(--white);border:1px solid var(--border);}
+.btn-ghost:hover{border-color:var(--border-strong);background:rgba(255,255,255,0.03);transform:translateY(-3px);}
+.btn svg{transition:transform .35s var(--ease);}
+.btn:hover svg{transform:translate(3px,-3px);}
+
+header.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 0;transition:padding .4s var(--ease);}
+header.nav .wrap{display:flex;align-items:center;justify-content:space-between;padding:12px 20px;border-radius:14px;transition:background .4s var(--ease), border-color .4s var(--ease);border:1px solid transparent;}
+header.nav.scrolled{padding:12px 0;}
+header.nav.scrolled .wrap{background:rgba(8,9,7,0.65);backdrop-filter:blur(18px) saturate(140%);-webkit-backdrop-filter:blur(18px) saturate(140%);border-color:var(--border);}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--font-display);font-weight:700;font-size:18px;letter-spacing:-.01em;}
+.logo-mark{width:32px;height:32px;border-radius:8px;display:block;object-fit:cover;flex-shrink:0;box-shadow:0 0 20px -4px var(--lime-glow);}
+.nav-links{display:flex;align-items:center;gap:34px;}
+.nav-links a{font-size:14px;color:var(--gray);font-weight:500;position:relative;transition:color .3s var(--ease);}
+.nav-links a.active{color:var(--lime);}
+.nav-links a::after{content:'';position:absolute;left:0;bottom:-6px;width:0;height:1px;background:var(--lime);transition:width .3s var(--ease);}
+.nav-links a:hover{color:var(--white);}
+.nav-links a:hover::after{width:100%;}
+.nav-cta{display:flex;align-items:center;gap:16px;}
+.nav-cta .btn{padding:11px 20px;font-size:13.5px;}
+.burger{display:none;flex-direction:column;gap:5px;width:32px;height:32px;align-items:center;justify-content:center;}
+.burger span{width:20px;height:1.5px;background:var(--white);transition:all .3s var(--ease);}
+.mobile-menu{position:fixed;inset:0;z-index:99;background:rgba(6,6,6,0.98);backdrop-filter:blur(20px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:32px;opacity:0;visibility:hidden;transition:opacity .4s var(--ease), visibility .4s var(--ease);}
+.mobile-menu.open{opacity:1;visibility:visible;}
+.mobile-menu a{font-family:var(--font-display);font-size:28px;font-weight:600;}
+.mobile-menu .btn{margin-top:12px;}
+@media (max-width:900px){.nav-links,.nav-cta{display:none;}.burger{display:flex;}}
+
+.post-hero{padding:170px 0 40px;}
+.post-hero .back{display:inline-flex;align-items:center;gap:8px;font-size:13.5px;color:var(--gray);margin-bottom:28px;transition:color .3s var(--ease);}
+.post-hero .back:hover{color:var(--lime);}
+.post-hero h1{font-size:clamp(32px,5.5vw,54px);margin:20px 0 22px;max-width:820px;}
+.post-hero .post-meta{display:flex;align-items:center;gap:10px;font-family:var(--font-mono);font-size:13px;color:var(--gray-dim);}
+.post-hero .post-meta .sep{width:3px;height:3px;border-radius:50%;background:var(--gray-dim);}
+
+.post-cover{width:100%;aspect-ratio:16/9;border-radius:18px;overflow:hidden;border:1px solid var(--border);margin:20px 0 60px;background:var(--surface);}
+.post-cover img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;}
+
+.post-content{max-width:720px;margin:0 auto;padding-bottom:100px;}
+.post-content h2{font-size:clamp(24px,3.4vw,32px);margin:52px 0 20px;}
+.post-content p{color:#d3d5cf;font-size:16.5px;line-height:1.85;margin-bottom:22px;}
+.post-content a{color:var(--lime);border-bottom:1px solid rgba(191,255,45,0.3);transition:border-color .3s var(--ease);}
+.post-content a:hover{border-color:var(--lime);}
+.post-content strong{color:var(--white);}
+
+.post-tags-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:50px;padding-top:34px;border-top:1px solid var(--border);}
+.post-tags-row span{font-family:var(--font-mono);font-size:13px;color:var(--lime);background:var(--lime-dim);border:1px solid var(--border-strong);padding:6px 14px;border-radius:100px;}
+
+.post-cta{margin-top:60px;padding:40px;border:1px solid var(--border);border-radius:18px;background:var(--card);text-align:center;}
+.post-cta h3{font-size:24px;margin-bottom:12px;}
+.post-cta p{color:var(--gray);margin-bottom:24px;}
+
+footer{border-top:1px solid var(--border);padding:60px 0 30px;background:var(--bg-soft);}
+.footer-top{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;margin-bottom:40px;}
+.footer-brand p{color:var(--gray);font-size:14px;max-width:320px;margin-top:14px;}
+.footer-cols{display:flex;gap:60px;flex-wrap:wrap;}
+.footer-col h4{font-size:13px;color:var(--gray-dim);text-transform:uppercase;letter-spacing:.06em;margin-bottom:16px;font-family:var(--font-mono);font-weight:500;}
+.footer-col a{display:block;font-size:14px;color:var(--gray);margin-bottom:12px;transition:color .3s var(--ease);}
+.footer-col a:hover{color:var(--lime);}
+.footer-bottom{border-top:1px solid var(--border);padding-top:24px;font-size:13px;color:var(--gray-dim);}
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a href="index.html#top" class="logo">
+      <img src="assets/spetratech-logo.png" alt="Spetratech logo" class="logo-mark">
+      Spetratech
+    </a>
+    <nav class="nav-links">
+      <a href="index.html#work">Work</a>
+      <a href="index.html#process">Process</a>
+      <a href="index.html#skills">Skills</a>
+      <a href="case-studies.html">Case Studies</a>
+      <a href="blog.html" class="active">My News</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="mailto:devgabriel22@gmail.com" class="btn btn-ghost">Email me</a>
+      <a href="https://calendly.com/devgabriel22/30min" target="_blank" rel="noopener" class="btn btn-primary">
+        Book a call
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H5M11 3V9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+    <button class="burger" id="burger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html#work">Work</a>
+  <a href="index.html#process">Process</a>
+  <a href="index.html#skills">Skills</a>
+  <a href="case-studies.html">Case Studies</a>
+  <a href="blog.html">My News</a>
+  <a href="https://calendly.com/devgabriel22/30min" target="_blank" rel="noopener" class="btn btn-primary">Book a call</a>
+</div>
+
+<main>
+  <section class="post-hero wrap">
+    <a href="blog.html" class="back">← Back to My News</a>
+    <h1>Becoming a Freelancer, Building Spetratech</h1>
+    <div class="post-meta"><span>By Israel Gabriel</span><span class="sep"></span><span>Journal</span></div>
+
+    <div class="post-cover">
+      <img src="assets/blog/becoming-a-freelancer-building-spetratech.jpg" alt="Becoming a Freelancer, Building Spetratech — cover image">
+    </div>
+  </section>
+
+  <article class="post-content wrap">
+    <h2>Becoming a Freelancer</h2>
+    <p>Freelancing introduced me to a completely different side of digital work.</p>
+    <p>It was no longer enough to know how to design. I had to communicate with clients, understand unclear ideas, work with deadlines, solve problems, handle revisions, present my work, and learn how to sell the value behind what I create.</p>
+    <p>That journey also pushed me to take my professional presence more seriously. Today, I document parts of my work and professional journey through <a href="https://ng.linkedin.com/in/spetratech" target="_blank" rel="noopener">LinkedIn</a>, while sharing some of the creative work and projects I'm building through <a href="https://www.instagram.com/spetratech/" target="_blank" rel="noopener">Instagram</a>.</p>
+    <p>Freelancing platforms also became part of that journey. I continue to work with clients through <a href="https://www.fiverr.com/emblem_writer/design-or-develop-wixstudio-website-figma-to-wixstudio-wix-studio-expert" target="_blank" rel="noopener">Fiverr</a>, particularly around website design and Wix Studio development.</p>
+
+    <h2>Building Spetratech</h2>
+    <p>Eventually, my individual work started becoming something bigger.</p>
+    <p>I began developing <a href="https://spetratech.netlify.app/" target="_blank" rel="noopener">Spetratech</a> as a digital brand focused on web design, development, branding, and digital solutions.</p>
+    <p>I didn't want Spetratech to become another agency that simply says, "We build websites."</p>
+    <p>I wanted the work to start with a business problem.</p>
+    <p>What does the business need? Where are potential customers getting stuck? What should the website communicate? What could be automated? And what should happen after someone fills out a form, makes an inquiry, or books an appointment?</p>
+    <p>Those questions increasingly shaped the way I approach projects.</p>
+
+    <h2>Why I Started Looking Beyond Websites</h2>
+    <p>One of the biggest lessons I've learned is that many businesses don't actually have a website problem.</p>
+    <p>They have a <strong>business system problem</strong>.</p>
+    <p>A beautiful website can still lose potential customers if nobody responds to inquiries quickly. A business can generate leads but fail to follow up. A service provider can receive calls while working with another customer and miss an opportunity.</p>
+    <p>That's why I've become increasingly interested in the relationship between websites and automation.</p>
+    <p>My work now explores the space between <strong>web design, development, user experience, and automation</strong> — the same direction I'm continuing to develop through Spetratech.</p>
+    <p>I also share some of that experimentation and behind-the-scenes work through the <a href="https://www.facebook.com/spetratech1" target="_blank" rel="noopener">Spetratech Facebook page</a>.</p>
+
+    <h2>The Kind of Websites I Want to Build</h2>
+    <p>I'm particularly interested in businesses that depend on their online presence to generate customers.</p>
+    <p>For these businesses, a website should do more than display a logo, phone number, and list of services.</p>
+    <p>It should answer important questions quickly: <strong>Who are you? What do you do? Can I trust you? Why should I choose you? What should I do next?</strong></p>
+    <p>That's why I focus heavily on structure, messaging, user experience, mobile responsiveness, visual hierarchy, and conversion.</p>
+    <p>When I work on a Wix Studio project, for example, I don't want the technology to become the focus. The platform is simply a tool for delivering the experience the business actually needs.</p>
+    <p>That's also why I offer <a href="https://www.fiverr.com/emblem_writer/design-or-develop-wixstudio-website-figma-to-wixstudio-wix-studio-expert" target="_blank" rel="noopener">Wix Studio and Figma-to-Wix Studio services on Fiverr</a>.</p>
+
+    <h2>From Freelancer to Builder</h2>
+    <p>My long-term goal goes beyond freelancing.</p>
+    <p>I want to build companies. I want to create digital products. I want to experiment with ideas that solve real problems. And I want to build technology that can exist beyond my own personal time and effort.</p>
+    <p>That means I'm constantly learning, testing, documenting, and improving.</p>
+    <p>Some of that journey happens through client work. Some happens through Spetratech. And some happens simply by sharing what I'm learning with people who follow the journey online.</p>
+    <p>I'm still building.</p>
+    <p>And that's an important part of my story.</p>
+
+    <div class="post-tags-row">
+      <span>#IsraelGabriel</span>
+      <span>#FreelanceWebDesigner</span>
+      <span>#WebsiteDesigner</span>
+      <span>#WebDesignAndAutomation</span>
+      <span>#spetratech</span>
+    </div>
+
+    <div class="post-cta">
+      <h3>Want to work together?</h3>
+      <p>I take on a limited number of projects at a time — happy to talk through what you're building.</p>
+      <a href="https://calendly.com/devgabriel22/30min" target="_blank" rel="noopener" class="btn btn-primary">
+        Book a call
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H5M11 3V9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </article>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html#top" class="logo"><img src="assets/spetratech-logo.png" alt="Spetratech logo" class="logo-mark">Spetratech</a>
+        <p>Website &amp; app developer specializing in Webflow, Wix Studio and Shopify — with AI automation built in.</p>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Navigate</h4>
+          <a href="index.html#work">Work</a>
+          <a href="index.html#process">Process</a>
+          <a href="index.html#skills">Skills</a>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="blog.html">My News</a>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <a href="mailto:devgabriel22@gmail.com">devgabriel22@gmail.com</a>
+          <a href="https://calendly.com/devgabriel22/30min" target="_blank" rel="noopener">Book a call</a>
+          <a href="https://instagram.com/spetratech" target="_blank" rel="noopener">/spetratech</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 Spetratech. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 20); });
+
+const burger = document.getElementById('burger');
+const mobileMenu = document.getElementById('mobileMenu');
+burger.addEventListener('click', () => {
+  mobileMenu.classList.toggle('open');
+  burger.classList.toggle('active');
+});
+mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('open')));
+</script>
+</body>
+</html>
