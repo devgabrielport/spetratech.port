@@ -607,6 +607,7 @@ footer{border-top:1px solid var(--border);padding:60px 0 34px;}
   .console-value{font-size:21px;}
   .hero h1{font-size:34px;}
 }
+@media (max-width:640px){header.nav .logo-text{display:none;}}
 </style>
 </head>
 <body>
@@ -617,9 +618,9 @@ footer{border-top:1px solid var(--border);padding:60px 0 34px;}
 <!-- ============ NAV ============ -->
 <header class="nav" id="nav">
   <div class="wrap">
-    <a href="#top" class="logo">
+    <a href="#top" class="logo" aria-label="Spetratech home">
       <img src="assets/spetratech-logo.png" alt="Spetratech logo" class="logo-mark">
-      Spetratech
+      <span class="logo-text">Spetratech</span>
     </a>
     <nav class="nav-links">
       <a href="#work">Work</a>

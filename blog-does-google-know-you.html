@@ -111,15 +111,16 @@ footer{border-top:1px solid var(--border);padding:60px 0 30px;background:var(--b
 .post-content em{color:var(--white);font-style:italic;}
 .post-shout{font-family:var(--font-display);font-weight:700;letter-spacing:.01em;color:var(--white);}
 .post-sign{font-family:var(--font-display);font-weight:600;color:var(--lime);margin-top:30px;}
+@media (max-width:640px){header.nav .logo-text{display:none;}}
 </style>
 </head>
 <body>
 
 <header class="nav" id="nav">
   <div class="wrap">
-    <a href="index.html#top" class="logo">
+    <a href="index.html#top" class="logo" aria-label="Spetratech home">
       <img src="assets/spetratech-logo.png" alt="Spetratech logo" class="logo-mark">
-      Spetratech
+      <span class="logo-text">Spetratech</span>
     </a>
     <nav class="nav-links">
       <a href="index.html#work">Work</a>
