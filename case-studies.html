@@ -109,6 +109,15 @@ footer{border-top:1px solid var(--border);padding:60px 0 30px;background:var(--b
 .footer-col a:hover{color:var(--accent);}
 .footer-bottom{border-top:1px solid var(--border);padding-top:24px;font-size:13px;color:var(--gray-dim);}
 @media (max-width:640px){header.nav .logo-text{display:none;}}
+
+/* ===== Footer newsletter (Substack embed) ===== */
+.footer-news{display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;padding:30px 34px;margin-bottom:50px;background:var(--card);border:1px solid var(--border);border-radius:18px;}
+.footer-news-copy{flex:1 1 280px;max-width:420px;}
+.footer-news-copy h3{font-family:var(--font-display);font-size:24px;letter-spacing:-0.02em;line-height:1.15;margin-bottom:8px;color:var(--white);}
+.footer-news-copy p{font-size:14.5px;line-height:1.65;color:var(--gray);}
+.footer-news-form{flex:1 1 320px;max-width:480px;width:100%;}
+.footer-news-form iframe{display:block;width:100%;max-width:480px;height:150px;border:0;background:transparent;}
+@media (max-width:700px){.footer-news{padding:24px 20px;gap:18px;}.footer-news-copy{max-width:none;}}
 </style>
 </head>
 <body>
@@ -223,6 +232,15 @@ footer{border-top:1px solid var(--border);padding:60px 0 30px;background:var(--b
 
 <footer>
   <div class="wrap">
+    <div class="footer-news">
+      <div class="footer-news-copy">
+        <h3>Join my newsletter</h3>
+        <p>Notes on web design, automation, and building Spetratech — straight to your inbox.</p>
+      </div>
+      <div class="footer-news-form">
+        <iframe src="https://spetratech.substack.com/embed?transparent=1" title="Subscribe to the Spetratech newsletter on Substack" width="480" height="150" style="border: 0; background: transparent" frameborder="0" scrolling="no" loading="lazy"></iframe>
+      </div>
+    </div>
     <div class="footer-top">
       <div class="footer-brand">
         <a href="index.html#top" class="logo"><img src="assets/spetratech-logo.png" alt="Spetratech logo" class="logo-mark">Spetratech</a>
