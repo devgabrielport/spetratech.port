@@ -680,6 +680,26 @@ footer{border-top:1px solid var(--border);padding:60px 0 34px;}
   .pv-right{flex-direction:row;align-items:center;justify-content:space-between;}
 }
 @media (prefers-reduced-motion:reduce){.pv-card{transform:none !important;}}
+
+/* ===== Hero: headline + notched banner ===== */
+.hero-lay{position:relative;z-index:2;width:100%;}
+.hero-lay h1{font-size:clamp(36px,5.4vw,76px);font-weight:500;letter-spacing:-.035em;line-height:1.03;margin-bottom:clamp(26px,3.2vw,44px);}
+.hero-banner{position:relative;}
+.hero-img{position:relative;aspect-ratio:2.45/1;border-radius:30px;overflow:hidden;background:#cfd2cb;}
+.hero-img img{width:100%;height:100%;object-fit:cover;object-position:50% 36%;display:block;}
+.hero-notch{position:absolute;top:0;right:0;width:min(350px,36%);padding:20px 8px 22px 30px;font-size:clamp(14px,1.2vw,17px);line-height:1.5;color:var(--white);}
+.hero-notch span{margin-right:2px;}
+.hero-pills{position:absolute;left:26px;bottom:26px;display:flex;flex-wrap:wrap;gap:8px;max-width:min(620px,72%);}
+.hero-pills span{padding:8px 18px;border-radius:99px;font-size:13.5px;color:#fff;background:rgba(14,15,12,.38);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.6);white-space:nowrap;}
+.hero-pills span.on{background:#fff;color:#0c0d0a;border-color:#fff;}
+@media (max-width:760px){
+  .hero-img{aspect-ratio:4/3.1;border-radius:24px;}
+  .hero-img img{object-position:50% 40%;}
+  .hero-notch{position:static;width:auto;padding:18px 4px 0;font-size:15px;}
+  .hero-pills{left:14px;right:14px;bottom:14px;max-width:none;gap:6px;}
+  .hero-pills span{padding:6px 13px;font-size:12px;}
+}
+@media (max-width:640px){.hero-lay h1{font-size:34px;}}
 </style>
 </head>
 <body>
@@ -737,61 +757,14 @@ footer{border-top:1px solid var(--border);padding:60px 0 34px;}
       <div class="shape s5"></div>
     </div>
     <div class="wrap">
-      <div class="hero-inner">
-        <div class="hero-copy">
-          <div class="eyebrow"><span class="dot"></span> Open for new projects — Q4 2026</div>
-          <h1>Websites &amp; apps built to <span class="accent">close the client</span>, not just look good.</h1>
-          <p class="hero-sub">I design and build high-end sites on Webflow, Wix Studio and Shopify, then automate the busywork with AI so your business runs lean from day one. Every build is planned in Figma first and shipped pixel-accurate.</p>
-          <div class="hero-actions">
-            <a href="https://calendly.com/devgabriel22/30min" target="_blank" rel="noopener" class="btn btn-primary">
-              Book a discovery call
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H5M11 3V9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
-            <a href="#work" class="btn btn-ghost">View the work</a>
+      <div class="hero-lay">
+        <h1 class="reveal">I build digital products,<br> brands &amp; experience</h1>
+        <div class="hero-banner reveal">
+          <div class="hero-img" id="heroImg">
+            <img src="assets/hero-team.jpg" alt="Three designers at work in black Spetratech sweatshirts" width="1672" height="941" fetchpriority="high">
+            <div class="hero-pills"><span class=on>Webflow ✱</span><span>Wix Studio ✱</span><span>Shopify ✱</span><span>AI Automation ✱</span><span>Figma ✱</span><span>Illustrator ✱</span></div>
           </div>
-          <div class="hero-trust">
-            <p>Built &amp; automated with</p>
-            <div class="trust-logos">
-              <span>Webflow</span>
-              <span>Wix Studio</span>
-              <span>Shopify</span>
-              <span>Figma</span>
-              <span>Adobe Illustrator</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="console">
-          <div class="console-head">
-            <div class="console-dots"><span></span><span></span><span></span></div>
-            <div class="console-title">build-status.live</div>
-          </div>
-          <div class="console-body">
-            <div class="console-row">
-              <div>
-                <div class="console-label">Avg. Lighthouse score</div>
-                <div class="console-value" data-count="97" data-suffix="/100">0<small>+12 vs. template builds</small></div>
-              </div>
-            </div>
-            <div class="console-row">
-              <div style="width:100%">
-                <div class="console-label">Client satisfaction</div>
-                <div class="console-value" data-count="98" data-suffix="%">0</div>
-                <div class="console-bar"><i data-fill="98"></i></div>
-              </div>
-            </div>
-            <div class="console-row">
-              <div>
-                <div class="console-label">Projects shipped</div>
-                <div class="console-value" data-count="40" data-suffix="+">0<small>Webflow · Wix · Shopify</small></div>
-              </div>
-            </div>
-            <div class="console-log">
-              <span>✓ deploy — checkout flow automated</span>
-              <span>✓ deploy — CMS synced via AI pipeline</span>
-              <span>✓ deploy — site live, SEO indexed</span>
-            </div>
-          </div>
+          <p class="hero-notch" id="heroNotch"><span aria-hidden="true">✱</span> To help ambitious businesses 2× their site &amp; app conversion and maximise ROI</p>
         </div>
       </div>
     </div>
@@ -1341,6 +1314,20 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
   const req=()=>{if(!raf)raf=requestAnimationFrame(update);};
   addEventListener('scroll',req,{passive:true}); addEventListener('resize',()=>{m=null;req();});
   cards.forEach(c=>c.style.setProperty('--r',0)); update();
+})();
+
+// Hero: carve the notch out of the banner image
+(function(){
+  const box=document.getElementById('heroImg'), notch=document.getElementById('heroNotch'); if(!box||!notch) return;
+  const R=30, r=24, f=n=>n.toFixed(1);
+  function draw(){
+    if(innerWidth<=760){box.style.clipPath='';return;}
+    const W=box.offsetWidth,H=box.offsetHeight,nw=notch.offsetWidth,nh=notch.offsetHeight,x0=W-nw;
+    box.style.clipPath='path("M'+R+',0 H'+f(x0-r)+' A'+r+','+r+' 0 0 1 '+f(x0)+','+r+' V'+f(nh-r)+' A'+r+','+r+' 0 0 0 '+f(x0+r)+','+f(nh)+' H'+f(W-r)+' A'+r+','+r+' 0 0 1 '+f(W)+','+f(nh+r)+' V'+f(H-R)+' A'+R+','+R+' 0 0 1 '+f(W-R)+','+f(H)+' H'+R+' A'+R+','+R+' 0 0 1 0,'+f(H-R)+' V'+R+' A'+R+','+R+' 0 0 1 '+R+',0 Z")';
+  }
+  draw(); addEventListener('resize',draw);
+  if(window.ResizeObserver){const ro=new ResizeObserver(draw);ro.observe(box);ro.observe(notch);}
+  if(document.fonts&&document.fonts.ready) document.fonts.ready.then(draw);
 })();
 </script>
 
