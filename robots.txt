@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://spetratech.netlify.app/sitemap.xml
+Sitemap: https://spetratech.com/sitemap.xml

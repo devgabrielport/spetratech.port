@@ -1,37 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://spetratech.netlify.app/</loc>
+    <loc>https://spetratech.com/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://spetratech.netlify.app/case-studies.html</loc>
+    <loc>https://spetratech.com/case-studies.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://spetratech.netlify.app/blog.html</loc>
+    <loc>https://spetratech.com/blog.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://spetratech.netlify.app/blog-becoming-a-freelancer-building-spetratech.html</loc>
+    <loc>https://spetratech.com/blog-becoming-a-freelancer-building-spetratech.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://spetratech.netlify.app/blog-does-google-know-you.html</loc>
+    <loc>https://spetratech.com/blog-does-google-know-you.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://spetratech.netlify.app/blog-why-is-941-cooked-across-app-screens.html</loc>
+    <loc>https://spetratech.com/blog-why-is-941-cooked-across-app-screens.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://spetratech.netlify.app/blog-fintech-problem-gap-i-found-personally.html</loc>
+    <loc>https://spetratech.com/blog-fintech-problem-gap-i-found-personally.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
