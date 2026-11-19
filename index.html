@@ -700,6 +700,39 @@ footer{border-top:1px solid var(--border);padding:60px 0 34px;}
   .hero-pills span{padding:6px 13px;font-size:12px;}
 }
 @media (max-width:640px){.hero-lay h1{font-size:34px;}}
+
+/* ===== Capabilities: fanned 3D cards ===== */
+#skills{overflow-x:clip;}
+.cap-stage{position:relative;margin-top:64px;aspect-ratio:2.4/1;}
+.cap-doodle{position:absolute;z-index:0;left:-3%;top:-9%;width:25%;overflow:visible;pointer-events:none;}
+.cap-card{--rot:0deg;position:absolute;z-index:calc(var(--i) + 1);width:26.5%;aspect-ratio:.88;top:var(--y);left:var(--x);transform:rotate(var(--rot));}
+.cap-card:nth-of-type(1){--x:.5%;--y:22%;--rot:-8deg;}
+.cap-card:nth-of-type(2){--x:25%;--y:14%;--rot:-3deg;}
+.cap-card:nth-of-type(3){--x:49.5%;--y:14%;--rot:3deg;}
+.cap-card:nth-of-type(4){--x:73.5%;--y:22%;--rot:8deg;}
+.cap-card:hover{z-index:20;}
+.cap-inner{position:absolute;inset:0;border-radius:28px;padding:clamp(18px,2.2vw,28px);display:flex;flex-direction:column;justify-content:flex-end;gap:clamp(14px,1.8vw,22px);transition:scale .45s var(--ease),box-shadow .45s var(--ease);box-shadow:0 34px 60px -34px rgba(20,30,0,.45);}
+.cap-card:hover .cap-inner{scale:1.07;box-shadow:0 44px 70px -34px rgba(20,30,0,.55);}
+.cap-white{background:#fff;color:#0c0d0a;border:1px solid rgba(12,13,10,.06);--sub:#9a9d96;--dot:#0c0d0a;--dotfg:#fff;}
+.cap-blue{background:linear-gradient(160deg,#5a78ff 0%,#2f4df0 55%,#2338d6 100%);color:#fff;--sub:rgba(255,255,255,.55);--dot:#fff;--dotfg:#2338d6;}
+.cap-black{background:linear-gradient(160deg,#1d1f1b 0%,#0b0c0a 70%);color:#fff;--sub:rgba(255,255,255,.42);--dot:#fff;--dotfg:#0b0c0a;}
+.cap-img{position:absolute;top:-9%;right:13%;width:58%;height:auto;pointer-events:none;filter:drop-shadow(0 18px 20px rgba(0,0,0,.18));}
+.cap-inner h3{font-size:clamp(20px,1.95vw,27px);font-weight:600;line-height:1.08;letter-spacing:-.025em;}
+.cap-inner h3 span{display:block;color:var(--sub);}
+.cap-more{display:inline-flex;align-items:center;gap:10px;font-size:11px;letter-spacing:.09em;text-transform:uppercase;font-weight:500;color:inherit;width:max-content;}
+.cap-more i{width:32px;height:32px;border-radius:50%;background:var(--dot);color:var(--dotfg);display:grid;place-items:center;transition:transform .3s var(--ease);}
+.cap-more:hover i{transform:rotate(45deg);}
+.cap-armed .cap-card{opacity:0;}
+.cap-armed .cap-doodle path{stroke-dasharray:1;stroke-dashoffset:1;}
+@media (max-width:760px){
+  .cap-stage{aspect-ratio:auto;display:flex;flex-direction:column;align-items:center;gap:26px;margin-top:48px;padding-top:50px;}
+  .cap-doodle{width:190px;left:-18px;top:-6px;}
+  .cap-card{position:relative;left:auto;top:auto;width:min(330px,88%);aspect-ratio:auto;min-height:330px;}
+  .cap-card:nth-of-type(odd){--rot:-2.5deg;}.cap-card:nth-of-type(even){--rot:2.5deg;}
+  .cap-img{top:-34px;right:20px;width:52%;}
+  .cap-inner h3{font-size:26px;}
+}
+@media (prefers-reduced-motion:reduce){.cap-armed .cap-card{opacity:1;}.cap-armed .cap-doodle path{stroke-dashoffset:0;}}
 </style>
 </head>
 <body>
@@ -798,62 +831,36 @@ footer{border-top:1px solid var(--border);padding:60px 0 34px;}
         <h2>One developer, the full stack of your launch.</h2>
         <p>From first wireframe to the automations that keep your site running after handoff — no agency relay race, no lost-in-translation briefs.</p>
       </div>
-      <div class="skills-grid">
-
-        <div class="skill-card reveal">
-          <div class="skill-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M2 6L7 18L12 8L17 18L22 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div class="cap-stage" id="capStage">
+        <svg class="cap-doodle" viewBox="0 0 600 675" aria-hidden="true"><path id="capDoodle" d="M0,547 C1,541 2,524 5,512 C8,501 13,489 19,478 C26,466 33,454 43,443 C52,432 66,416 76,414 C85,411 94,422 98,430 C101,439 98,453 97,465 C96,477 93,488 92,500 C90,511 89,523 88,534 C87,546 85,557 85,569 C85,581 82,599 87,604 C93,609 110,606 117,600 C123,593 124,577 127,565 C130,553 133,542 136,530 C139,519 142,507 146,496 C149,484 154,473 159,461 C164,449 169,438 176,426 C182,415 190,402 198,392 C206,381 215,371 224,362 C233,353 243,345 254,338 C264,331 277,324 288,319 C300,314 311,310 323,307 C335,304 346,301 358,299 C369,297 381,296 392,294 C404,293 415,292 427,292 C439,292 450,293 462,294 C473,295 485,296 496,299 C508,302 520,305 531,312 C542,319 556,329 564,340 C572,350 577,363 579,374 C580,386 579,398 573,409 C567,420 553,433 542,441 C531,450 519,455 508,460 C496,466 485,470 473,473 C461,476 450,478 438,479 C427,481 415,480 404,480 C392,480 381,479 369,477 C357,475 346,473 334,468 C323,464 311,460 300,453 C288,445 275,435 265,425 C255,415 245,402 238,390 C231,379 226,367 221,356 C217,344 212,333 210,321 C209,309 209,298 210,286 C211,275 214,263 217,252 C221,240 227,229 233,217 C239,205 246,194 254,182 C262,171 273,159 283,148 C294,136 306,125 318,114 C330,104 341,95 353,87 C364,78 376,71 387,63 C399,56 410,49 422,42 C434,35 445,30 457,24 C468,18 480,10 491,7 C503,3 519,2 526,1 C533,-0 531,0 532,0" pathLength="1" fill="none" stroke="#0c0d0a" stroke-width="32" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <article class="cap-card" style="--i:0">
+          <div class="cap-inner cap-white">
+            <img class="cap-img" src="assets/cap/web.webp" alt="" width="760" height="560" loading="lazy">
+            <h3>Website<span>Development</span></h3>
+            <a class="cap-more" href="#" data-soon aria-label="Learn more about Website Development"><i><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3.5 10.5L10.5 3.5M10.5 3.5H5M10.5 3.5V9" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i>Learn more</a>
           </div>
-          <h3>Webflow — High-end builds</h3>
-          <p>Custom interactions, CMS-driven pages, and pixel-precise responsive layouts for brands that can't afford to look generic.</p>
-          <span class="skill-tag">Enterprise-grade</span>
-        </div>
-
-        <div class="skill-card reveal">
-          <div class="skill-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" rx="1.5" stroke="currentColor" stroke-width="1.7"/><rect x="13" y="3" width="8" height="8" rx="1.5" stroke="currentColor" stroke-width="1.7"/><rect x="3" y="13" width="8" height="8" rx="1.5" stroke="currentColor" stroke-width="1.7"/><rect x="13" y="13" width="8" height="8" rx="1.5" stroke="currentColor" stroke-width="1.7"/></svg>
+        </article>
+        <article class="cap-card" style="--i:1">
+          <div class="cap-inner cap-blue">
+            <img class="cap-img" src="assets/cap/app.webp" alt="" width="760" height="560" loading="lazy">
+            <h3>iOS &amp; Android<span>Development</span></h3>
+            <a class="cap-more" href="#" data-soon aria-label="Learn more about iOS and Android Development"><i><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3.5 10.5L10.5 3.5M10.5 3.5H5M10.5 3.5V9" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i>Learn more</a>
           </div>
-          <h3>Wix Studio</h3>
-          <p>Fast, client-editable sites with advanced layout controls — ideal when you need to self-manage content after launch.</p>
-          <span class="skill-tag">Client-friendly CMS</span>
-        </div>
-
-        <div class="skill-card reveal">
-          <div class="skill-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M7 4H17L20 8L12 20L4 8L7 4Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+        </article>
+        <article class="cap-card" style="--i:2">
+          <div class="cap-inner cap-black">
+            <img class="cap-img" src="assets/cap/ux.webp" alt="" width="760" height="560" loading="lazy">
+            <h3>UI/UX<span>Product Designer</span></h3>
+            <a class="cap-more" href="#" data-soon aria-label="Learn more about UI/UX Product Designer"><i><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3.5 10.5L10.5 3.5M10.5 3.5H5M10.5 3.5V9" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i>Learn more</a>
           </div>
-          <h3>Shopify</h3>
-          <p>Conversion-tuned storefronts, custom sections and checkout flows built to move product, not just display it.</p>
-          <span class="skill-tag">E-commerce ready</span>
-        </div>
-
-        <div class="skill-card reveal">
-          <div class="skill-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.7"/><path d="M12 2V5M12 19V22M22 12H19M5 12H2M19.07 4.93L16.95 7.05M7.05 16.95L4.93 19.07M19.07 19.07L16.95 16.95M7.05 7.05L4.93 4.93" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+        </article>
+        <article class="cap-card" style="--i:3">
+          <div class="cap-inner cap-white">
+            <img class="cap-img" src="assets/cap/seo.webp" alt="" width="760" height="560" loading="lazy">
+            <h3>SEO &amp; SEM<span>Marketing</span></h3>
+            <a class="cap-more" href="#" data-soon aria-label="Learn more about SEO and SEM Marketing"><i><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3.5 10.5L10.5 3.5M10.5 3.5H5M10.5 3.5V9" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i>Learn more</a>
           </div>
-          <h3>AI &amp; Automation</h3>
-          <p>Custom AI tools and automated workflows — lead routing, content pipelines, reporting — wired straight into your stack.</p>
-          <span class="skill-tag">Time-saving systems</span>
-        </div>
-
-        <div class="skill-card reveal">
-          <div class="skill-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2C15 2 17 4 17 7C17 9.5 15.5 10.5 15.5 12.5C15.5 14 12 14 12 14C12 14 8.5 14 8.5 12.5C8.5 10.5 7 9.5 7 7C7 4 9 2 12 2Z" stroke="currentColor" stroke-width="1.7"/><path d="M9 18H15M10 21H14" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
-          </div>
-          <h3>Figma — Product design</h3>
-          <p>Full UX flows, design systems and prototypes — every build starts validated in Figma before a line of code ships.</p>
-          <span class="skill-tag">Design systems</span>
-        </div>
-
-        <div class="skill-card reveal">
-          <div class="skill-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 20L10 4L14 15L20 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-          <h3>Adobe Illustrator</h3>
-          <p>Custom vector assets, icon sets and brand marks — so your site never leans on stock graphics to feel premium.</p>
-          <span class="skill-tag">Brand assets</span>
-        </div>
-
+        </article>
       </div>
     </div>
   </section>
@@ -1328,6 +1335,31 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
   draw(); addEventListener('resize',draw);
   if(window.ResizeObserver){const ro=new ResizeObserver(draw);ro.observe(box);ro.observe(notch);}
   if(document.fonts&&document.fonts.ready) document.fonts.ready.then(draw);
+})();
+
+// Capabilities: cards sweep in along curves; doodle draws itself
+(function(){
+  const stage=document.getElementById('capStage'); if(!stage) return;
+  stage.querySelectorAll('[data-soon]').forEach(a=>a.addEventListener('click',e=>e.preventDefault()));
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  stage.classList.add('cap-armed');
+  const cards=[...stage.querySelectorAll('.cap-card')], doodle=document.getElementById('capDoodle');
+  const ease=t=>1-Math.pow(1-t,3);
+  function play(){
+    const k=innerWidth<=760?.45:1, S={x:560*k,y:400*k}, C={x:380*k,y:-140*k};
+    cards.forEach((c,i)=>{
+      const rot=parseFloat(getComputedStyle(c).getPropertyValue('--rot'))||0, frames=[];
+      for(let n=0;n<=16;n++){
+        const t=n/16,u=ease(t),a=(1-u)*(1-u),b=2*(1-u)*u,d=u*u;
+        const x=a*S.x+b*C.x, y=a*S.y+b*C.y;
+        frames.push({transform:`translate(${x.toFixed(1)}px,${y.toFixed(1)}px) rotate(${(rot+(1-u)*24).toFixed(2)}deg)`,opacity:Math.min(1,t*4),offset:t,easing:'linear'});
+      }
+      const an=c.animate(frames,{duration:1100,delay:200+i*170,fill:'both'});
+      an.onfinish=()=>{c.style.opacity=1;an.cancel();};
+    });
+    if(doodle) doodle.animate([{strokeDashoffset:1},{strokeDashoffset:0}],{duration:750,delay:120,easing:'cubic-bezier(.4,.1,.2,1)',fill:'forwards'});
+  }
+  new IntersectionObserver((es,io)=>{if(es[0].isIntersecting){io.disconnect();play();}},{threshold:.3}).observe(stage);
 })();
 </script>
 
