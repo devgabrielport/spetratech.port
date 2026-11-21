@@ -1,0 +1,3 @@
+# Send the old Netlify address to the real domain (301 = permanent, ! = force even though the page exists)
+https://spetratech.netlify.app/*   https://spetratech.com/:splat   301!
+http://spetratech.netlify.app/*    https://spetratech.com/:splat    301!
